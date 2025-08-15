@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SYX | Electrodomésticos & Servicio Técnico</title>
+  <meta name="description" content="SYX: Venta de electrodomésticos, ofertas y servicio técnico profesional en Alejandro Korn y alrededores." />
+  <meta property="og:title" content="SYX | Electrodomésticos & Servicio Técnico" />
+  <meta property="og:description" content="Venta de electrodomésticos + Servicio técnico profesional en Alejandro Korn y la región." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://res.cloudinary.com/demo/image/upload/v1720000000/syx/og.jpg" />
+  <meta property="og:locale" content="es_AR" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --violeta:#6B2EE6; /* acorde a estilo SYX */
+      --violeta-oscuro:#4B1FA8;
+      --magenta:#E5399A;
+      --gris:#1e1e1e;
+      --gris-2:#2a2a2a;
+      --claro:#f6f6f9;
+      --ok:#16a34a;
+      --danger:#ef4444;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.12);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#0f0f12;color:#fff;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin-inline:auto}
+    /* Header */
+    header{position:sticky;top:0;background:rgba(15,15,18,.8);backdrop-filter: blur(10px);border-bottom:1px solid #2a2a2a;z-index:30}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center}
+    .brand-logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--violeta),var(--magenta));display:grid;place-items:center;box-shadow:var(--shadow);font-family:Calistoga;font-size:22px}
+    .brand h1{font-family:Calistoga;margin:0;font-size:22px;letter-spacing:.3px}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{padding:8px 12px;border-radius:10px}
+    .menu a:hover{background:#222}
+    .cta{background:linear-gradient(135deg,var(--violeta),var(--magenta));padding:10px 14px;border-radius:999px;font-weight:600;box-shadow:var(--shadow)}
+    .hamb{display:none}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:-30%;background:radial-gradient(600px 300px at 10% 10%, rgba(107,46,230,.35), transparent 60%),
+      radial-gradient(600px 300px at 90% 30%, rgba(229,57,154,.25), transparent 60%);
+      filter:blur(20px);z-index:-1}
+    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;padding:40px 0 22px}
+    .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+    .title{font-family:Calistoga;font-size:40px;line-height:1.05;margin:8px 0}
+    .title strong{color:#fff;background:linear-gradient(135deg,var(--violeta),var(--magenta));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .sub{opacity:.85;max-width:55ch}
+    .actions{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+    .btn{padding:12px 16px;border-radius:14px;border:1px solid #2a2a2a;background:#141418;font-weight:600}
+    .btn.primary{border:0;background:linear-gradient(135deg,var(--violeta),var(--magenta))}
+
+    /* Secciones */
+    section{padding:40px 0;border-top:1px solid #1c1c1f}
+    h2{font-family:Calistoga;font-size:28px;margin:0 0 14px}
+    .grid{display:grid;gap:16px}
+    .cards{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+    .card{background:#15151a;border:1px solid #24242a;border-radius:var(--radius);padding:14px;box-shadow:var(--shadow)}
+    .price{font-weight:700;font-size:18px;margin:6px 0}
+    .pill{display:inline-block;font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #2a2a2a;opacity:.9}
+    .badge{font-size:12px;padding:4px 8px;border-radius:8px;background:#1b1b22;border:1px solid #2a2a2a}
+
+    /* Split sección técnica */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .panel{background:#131318;border:1px solid #24242a;border-radius:var(--radius);padding:18px}
+    .panel h3{margin:0 0 6px}
+    .panel ul{margin:10px 0 0 18px}
+
+    /* Galería trabajos */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+    .gallery figure{margin:0;background:#101015;border:1px solid #24242a;border-radius:14px;overflow:hidden}
+    .gallery figcaption{padding:8px;font-size:12px;opacity:.8}
+
+    /* Catálogo mayorista */
+    .cta-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(135deg,var(--violeta-oscuro),var(--magenta));padding:16px;border-radius:var(--radius)}
+
+    /* Contacto */
+    form{display:grid;gap:10px;margin-top:8px}
+    input,select,textarea{background:#0f0f12;color:#fff;border:1px solid #2a2a2a;border-radius:12px;padding:12px;width:100%}
+    textarea{min-height:90px}
+
+    /* Footer */
+    footer{padding:28px 0;border-top:1px solid #1c1c1f;opacity:.9}
+    .foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+
+    /* Responsive */
+    @media (max-width: 880px){
+      .hero .wrap{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+      .menu{display:none}
+      .hamb{display:block;border:1px solid #2a2a2a;border-radius:10px;padding:8px}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "SYX Electrodomésticos y Servicio Técnico",
+    "address": {"@type":"PostalAddress","addressLocality":"Alejandro Korn","addressRegion":"Buenos Aires","addressCountry":"AR"},
+    "areaServed": "San Vicente, Alejandro Korn y alrededores",
+    "url": "https://agusthebeast.github.io/syx/",
+    "telephone": "+54 11 0000-0000",
+    "sameAs": ["https://www.instagram.com/"],
+    "department": [{"@type":"Service","name":"Servicio técnico de TV y electro"}]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo">S</div>
+        <h1>SYX</h1>
+      </div>
+      <nav class="menu" aria-label="principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a class="cta" href="#contacto">Escribir por WhatsApp</a>
+      </nav>
+      <button class="hamb" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="container wrap">
+      <div>
+        <div class="eyebrow">Electrodomésticos + Servicio Técnico</div>
+        <h2 class="title">Todo para tu hogar en un solo lugar. <strong>Compra fácil</strong> y <strong>servicio profesional</strong> en la región.</h2>
+        <p class="sub">Somos de Alejandro Korn y atendemos toda la zona. Vendemos TV, audio, cocina y más. Además, reparamos con garantía.</p>
+        <div class="actions">
+          <a class="btn primary" href="#productos">Ver ofertas</a>
+          <a class="btn" href="#servicios">Necesito una reparación</a>
+          <a class="btn" href="#mayorista">Catálogo mayorista</a>
+        </div>
+      </div>
+      <div>
+        <img alt="Showroom SYX" src="https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700000/syx/showroom.jpg" onerror="this.src='https://res.cloudinary.com/demo/image/upload/v1700000000/ecommerce.jpg'"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos Destacados -->
+  <section id="productos">
+    <div class="container">
+      <h2>Productos destacados</h2>
+      <div class="grid cards" id="productosGrid">
+        <!-- Cards generadas por JS (ejemplos) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios / Técnico -->
+  <section id="servicios">
+    <div class="container split">
+      <div class="panel">
+        <span class="pill">Servicio Técnico</span>
+        <h3>Reparación profesional</h3>
+        <p>Especialistas en TV y electro. Diagnóstico rápido, repuestos originales y garantía por escrito.</p>
+        <ul>
+          <li>Diagnóstico en 24/48h</li>
+          <li>Garantía escrita</li>
+          <li>Retiro y entrega en zona</li>
+        </ul>
+        <div class="actions" style="margin-top:12px">
+          <a class="btn primary" href="#contacto">Agendar revisión</a>
+          <a class="btn" href="#trabajos">Ver trabajos</a>
+        </div>
+      </div>
+      <div class="panel">
+        <span class="pill">Instalaciones</span>
+        <h3>Colocación y mantenimiento</h3>
+        <p>Montaje de TV en pared, audio, cableado prolijo, puesta a punto y mantenimiento preventivo.</p>
+        <ul>
+          <li>Soportes certificados</li>
+          <li>Cables ocultos</li>
+          <li>Configuración smart</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trabajos (galería) -->
+  <section id="trabajos">
+    <div class="container">
+      <h2>Nuestros trabajos</h2>
+      <div class="gallery" id="galeriaTrabajos">
+        <!-- Imágenes de casos reales -->
+        <figure>
+          <img alt="Reparación de TV" src="https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700001/syx/trabajos/tv1.jpg" onerror="this.src='https://res.cloudinary.com/demo/image/upload/v1700000000/repair.jpg'">
+          <figcaption>Reparación de placa | Garantía 6 meses</figcaption>
+        </figure>
+        <figure>
+          <img alt="Instalación TV" src="https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700001/syx/trabajos/tv2.jpg">
+          <figcaption>Instalación con cables ocultos</figcaption>
+        </figure>
+        <figure>
+          <img alt="Audio" src="https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700001/syx/trabajos/audio1.jpg">
+          <figcaption>Calibración de audio</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catálogo Mayorista -->
+  <section id="mayorista">
+    <div class="container">
+      <div class="cta-strip">
+        <div>
+          <strong style="display:block;font-size:18px">¿Sos comercio o revendedor?</strong>
+          <span>Accedé al catálogo mayorista con precios por volumen.</span>
+        </div>
+        <a class="btn" href="#contacto">Solicitar acceso</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto / WhatsApp -->
+  <section id="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <p>Respondemos por WhatsApp y correo. Enviá tu consulta y te contestamos a la brevedad.</p>
+      <form id="formContacto" onsubmit="return enviarContacto(event)">
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:10px">
+          <input required name="nombre" placeholder="Nombre y apellido" />
+          <input required name="telefono" placeholder="Teléfono / WhatsApp" />
+        </div>
+        <select name="motivo" required>
+          <option value="Compra de producto">Compra de producto</option>
+          <option value="Servicio técnico">Servicio técnico</option>
+          <option value="Mayorista">Mayorista</option>
+        </select>
+        <textarea name="mensaje" placeholder="Contanos qué necesitás"></textarea>
+        <div class="actions">
+          <button class="btn primary" type="submit">Enviar por WhatsApp</button>
+          <a class="btn" href="mailto:ventas@syx.com.ar">Escribir por email</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Ubicación / Mapa -->
+  <section id="ubicacion">
+    <div class="container">
+      <h2>Ubicación</h2>
+      <p>Alejandro Korn, Buenos Aires. Atendemos San Vicente y alrededores.</p>
+      <div class="card">
+        <iframe title="Mapa" style="width:100%;height:320px;border:0;border-radius:12px" loading="lazy" allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Alejandro%20Korn%2C%20Buenos%20Aires&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container foot">
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="brand-logo" style="width:28px;height:28px;font-size:16px">S</div>
+        <span>© <span id="y"></span> SYX — Todos los derechos reservados</span>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="badge">Atención móvil‑first</span>
+        <span class="badge">Garantía escrita</span>
+        <span class="badge">Región Alejandro Korn</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Año en footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Productos de ejemplo (luego se reemplaza con datos reales / Cloudinary)
+    const productosEjemplo = [
+      {nombre:'TV 50" 4K Smart', precio: 599999, img:'https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700000/syx/productos/tv50.jpg', etiqueta:'Oferta'},
+      {nombre:'Heladera No Frost', precio: 879999, img:'https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700000/syx/productos/heladera.jpg', etiqueta:'12 cuotas'},
+      {nombre:'Lavarropas 8kg', precio: 639999, img:'https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700000/syx/productos/lavarropas.jpg', etiqueta:'Envío gratis'},
+      {nombre:'Parlante Bluetooth', precio: 59999, img:'https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700000/syx/productos/parlante.jpg', etiqueta:'Nuevo'},
+    ];
+
+    const grid = document.getElementById('productosGrid');
+    const money = n => n.toLocaleString('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0});
+    grid.innerHTML = productosEjemplo.map(p=>`
+      <article class="card">
+        <span class="pill">${p.etiqueta}</span>
+        <img alt="${p.nombre}" src="${p.img}" loading="lazy"/>
+        <h3 style="margin:8px 0 0">${p.nombre}</h3>
+        <div class="price">${money(p.precio)}</div>
+        <div class="actions">
+          <a class="btn" href="#contacto" onclick="prefill('${p.nombre.replace(/"/g,'')}', '${money(p.precio)}')">Consultar</a>
+          <a class="btn primary" href="#contacto" onclick="prefill('${p.nombre.replace(/"/g,'')}', '${money(p.precio)}')">Comprar</a>
+        </div>
+      </article>
+    `).join('');
+
+    // WhatsApp
+    const WAPP_NUM = '5491100000000'; // <-- reemplazar por número real sin + y sin espacios
+    function enviarContacto(e){
+      e.preventDefault();
+      const f = e.target;
+      const data = {
+        nombre: f.nombre.value.trim(),
+        tel: f.telefono.value.trim(),
+        motivo: f.motivo.value,
+        msg: f.mensaje.value.trim()
+      };
+      const texto = `Hola SYX!%0A`+
+        `Nombre: ${encodeURIComponent(data.nombre)}%0A`+
+        `Tel: ${encodeURIComponent(data.tel)}%0A`+
+        `Motivo: ${encodeURIComponent(data.motivo)}%0A`+
+        `Mensaje: ${encodeURIComponent(data.msg || '—')}`;
+      const link = `https://wa.me/${WAPP_NUM}?text=${texto}`;
+      window.open(link, '_blank');
+      return false;
+    }
+    function prefill(nombre, precio){
+      const campo = document.querySelector('#formContacto textarea');
+      campo.value = `Consulta por: ${nombre} (${precio})`;
+      document.querySelector('#formContacto select').value = 'Compra de producto';
+      document.getElementById('formContacto').scrollIntoView({behavior:'smooth'});
+    }
+
+    // Menú móvil simple
+    function toggleMenu(){
+      const nav = document.querySelector('.menu');
+      if(!nav) return; nav.style.display = nav.style.display==='flex' ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>
