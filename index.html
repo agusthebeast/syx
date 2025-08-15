@@ -15,79 +15,80 @@
   <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --violeta:#6B2EE6; /* acorde a estilo SYX */
+      --violeta:#6B2EE6;
       --violeta-oscuro:#4B1FA8;
       --magenta:#E5399A;
-      --gris:#1e1e1e;
-      --gris-2:#2a2a2a;
-      --claro:#f6f6f9;
-      --ok:#16a34a;
-      --danger:#ef4444;
+      --bg:#000;
+      --text:#fff;
+      --b1:#222; /* bordes generales */
+      --b2:#1a1a1a; /* bordes internos */
+      --card:#0a0a0a; /* fondo tarjetas/paneles */
+      --shadow:0 10px 30px rgba(0,0,0,.25);
       --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.12);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:#000;color:#fff;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{width:min(1100px,92%);margin-inline:auto}
+
     /* Header */
-    header{position:sticky;top:0;background:rgba(0,0,0,.85);backdrop-filter: blur(10px);border-bottom:1px solid #222;z-index:30}
+    header{position:sticky;top:0;background:rgba(0,0,0,.88);backdrop-filter: blur(10px);border-bottom:1px solid var(--b1);z-index:30}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;gap:10px;align-items:center}
     .brand-logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--violeta),var(--magenta));display:grid;place-items:center;box-shadow:var(--shadow);font-family:Calistoga;font-size:22px}
     .brand h1{font-family:Calistoga;margin:0;font-size:22px;letter-spacing:.3px}
     .menu{display:flex;gap:18px;align-items:center}
     .menu a{padding:8px 12px;border-radius:10px}
-    .menu a:hover{background:#222}
+    .menu a:hover{background:#121212}
     .cta{background:linear-gradient(135deg,var(--violeta),var(--magenta));padding:10px 14px;border-radius:999px;font-weight:600;box-shadow:var(--shadow)}
     .hamb{display:none}
 
     /* Hero */
     .hero{position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:-30%;background:radial-gradient(600px 300px at 10% 10%, rgba(107,46,230,.35), transparent 60%),
-      radial-gradient(600px 300px at 90% 30%, rgba(229,57,154,.25), transparent 60%);
+    .hero::before{content:"";position:absolute;inset:-30%;background:radial-gradient(600px 300px at 10% 10%, rgba(107,46,230,.25), transparent 60%),
+      radial-gradient(600px 300px at 90% 30%, rgba(229,57,154,.18), transparent 60%);
       filter:blur(20px);z-index:-1}
     .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center;padding:40px 0 22px}
-    .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+    .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
     .title{font-family:Calistoga;font-size:40px;line-height:1.05;margin:8px 0}
     .title strong{color:#fff;background:linear-gradient(135deg,var(--violeta),var(--magenta));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .sub{opacity:.85;max-width:55ch}
+    .sub{opacity:.9;max-width:55ch}
     .actions{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
-    .btn{padding:12px 16px;border-radius:14px;border:1px solid #2a2a2a;background:#141418;font-weight:600}
+    .btn{padding:12px 16px;border-radius:14px;border:1px solid var(--b1);background:#0b0b0b;font-weight:600}
     .btn.primary{border:0;background:linear-gradient(135deg,var(--violeta),var(--magenta))}
 
     /* Secciones */
-    section{padding:40px 0;border-top:1px solid #1c1c1f}
+    section{padding:40px 0;border-top:1px solid var(--b1)}
     h2{font-family:Calistoga;font-size:28px;margin:0 0 14px}
     .grid{display:grid;gap:16px}
     .cards{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
-    .card{background:#15151a;border:1px solid #24242a;border-radius:var(--radius);padding:14px;box-shadow:var(--shadow)}
+    .card{background:var(--card);border:1px solid var(--b2);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow)}
     .price{font-weight:700;font-size:18px;margin:6px 0}
-    .pill{display:inline-block;font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid #2a2a2a;opacity:.9}
-    .badge{font-size:12px;padding:4px 8px;border-radius:8px;background:#1b1b22;border:1px solid #2a2a2a}
+    .pill{display:inline-block;font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid var(--b1);opacity:.95}
+    .badge{font-size:12px;padding:4px 8px;border-radius:8px;background:#0f0f0f;border:1px solid var(--b1)}
 
     /* Split sección técnica */
     .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .panel{background:#131318;border:1px solid #24242a;border-radius:var(--radius);padding:18px}
+    .panel{background:var(--card);border:1px solid var(--b2);border-radius:var(--radius);padding:18px}
     .panel h3{margin:0 0 6px}
     .panel ul{margin:10px 0 0 18px}
 
     /* Galería trabajos */
     .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-    .gallery figure{margin:0;background:#101015;border:1px solid #24242a;border-radius:14px;overflow:hidden}
-    .gallery figcaption{padding:8px;font-size:12px;opacity:.8}
+    .gallery figure{margin:0;background:var(--card);border:1px solid var(--b2);border-radius:14px;overflow:hidden}
+    .gallery figcaption{padding:8px;font-size:12px;opacity:.9}
 
     /* Catálogo mayorista */
     .cta-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(135deg,var(--violeta-oscuro),var(--magenta));padding:16px;border-radius:var(--radius)}
 
     /* Contacto */
     form{display:grid;gap:10px;margin-top:8px}
-    input,select,textarea{background:#0f0f12;color:#fff;border:1px solid #2a2a2a;border-radius:12px;padding:12px;width:100%}
+    input,select,textarea{background:#000;color:#fff;border:1px solid var(--b1);border-radius:12px;padding:12px;width:100%}
     textarea{min-height:90px}
 
     /* Footer */
-    footer{padding:28px 0;border-top:1px solid #1c1c1f;opacity:.9}
+    footer{padding:28px 0;border-top:1px solid var(--b1);opacity:.9}
     .foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
 
     /* Responsive */
@@ -95,7 +96,7 @@
       .hero .wrap{grid-template-columns:1fr}
       .split{grid-template-columns:1fr}
       .menu{display:none}
-      .hamb{display:block;border:1px solid #2a2a2a;border-radius:10px;padding:8px}
+      .hamb{display:block;border:1px solid var(--b1);border-radius:10px;padding:8px}
     }
   </style>
   <script type="application/ld+json">
@@ -156,9 +157,7 @@
   <section id="productos">
     <div class="container">
       <h2>Productos destacados</h2>
-      <div class="grid cards" id="productosGrid">
-        <!-- Cards generadas por JS (ejemplos) -->
-      </div>
+      <div class="grid cards" id="productosGrid"></div>
     </div>
   </section>
 
@@ -197,9 +196,8 @@
     <div class="container">
       <h2>Nuestros trabajos</h2>
       <div class="gallery" id="galeriaTrabajos">
-        <!-- Imágenes de casos reales -->
         <figure>
-          <img alt="Reparación de TV" src="https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700001/syx/trabajos/tv1.jpg" onerror="this.src='https://res.cloudinary.com/demo/image/upload/v1700000000/repair.jpg'">
+          <img alt="Reparación de TV" src="https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700001/syx/trabajos/tv1.jpg">
           <figcaption>Reparación de placa | Garantía 6 meses</figcaption>
         </figure>
         <figure>
@@ -282,7 +280,7 @@
     // Año en footer
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Productos de ejemplo (luego se reemplaza con datos reales / Cloudinary)
+    // Productos de ejemplo
     const productosEjemplo = [
       {nombre:'TV 50" 4K Smart', precio: 599999, img:'https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700000/syx/productos/tv50.jpg', etiqueta:'Oferta'},
       {nombre:'Heladera No Frost', precio: 879999, img:'https://res.cloudinary.com/dlrbwgtfa/image/upload/f_auto,q_auto/v1723700000/syx/productos/heladera.jpg', etiqueta:'12 cuotas'},
