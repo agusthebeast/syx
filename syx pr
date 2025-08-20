@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empresa de Construcción</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">ECR</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#empresa">Empresa</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#obras">Obras</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <h1>Construimos el Futuro</h1>
+    <p>Soluciones integrales en obras y servicios.</p>
+    <a href="#contacto" class="btn">Contactanos</a>
+  </section>
+
+  <!-- Empresa -->
+  <section id="empresa">
+    <h2>Nuestra Empresa</h2>
+    <p>Más de 20 años brindando soluciones en construcción, infraestructura y servicios.</p>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="grid">
+      <div class="card">Construcción</div>
+      <div class="card">Ingeniería</div>
+      <div class="card">Obras Viales</div>
+    </div>
+  </section>
+
+  <!-- Obras -->
+  <section id="obras">
+    <h2>Obras Realizadas</h2>
+    <div class="grid">
+      <img src="img/obra1.jpg" alt="Obra 1">
+      <img src="img/obra2.jpg" alt="Obra 2">
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form>
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Mensaje"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Empresa de Construcción. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
+
+
